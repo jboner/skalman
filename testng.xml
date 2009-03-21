@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Tests for the skalman scala container" verbose="1">
+  <test name="skalman">
+    <groups>
+      <run>
+        <include name="unit"/>
+        <exclude name="broken"/>
+      </run>
+    </groups>
+    <packages>
+      <package name="se.scalablesolutions.*" />
+    </packages>
+  </test>
+</suite>
