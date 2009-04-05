@@ -1,12 +1,26 @@
 The Skalman Container: A minimalistic JEE container for Scala
 
+----
 Has support for: 
-* JPA (JPA Template, Genenic Repository etc.)
-* JTA (EJB-style TX semantics: REQUIRED, REQUIRES_NEW, MANDATORY, NEVER, SUPPORTS. Annotate your methods with f.e. '@TransactionAttribute(TransactionAttributeType.REQUIRED)')
-* AOP/Interceptor framework (Match on annotations or AspectJ pointcut langugage)
-* Caching (Annotate your methods with '@Cacheable' to have the cached in a very performant way)
+* JPA
+JPA Template, Genenic Repository etc.
 
+* JTA
+EJB-style TX semantics: REQUIRED, REQUIRES_NEW, MANDATORY, NEVER, SUPPORTS. Annotate your methods with f.e. '@TransactionAttribute(TransactionAttributeType.REQUIRED)'.
+
+* AOP/Interceptor framework
+Match on annotations or AspectJ pointcut langugage.
+
+* Caching
+Annotate your methods with '@Cacheable' to have the cached in a very performant way.
+
+* DI
+We used the Cake Pattern, but used Guice at one point, should be easy to add that again if requested. 
+See this article for details: http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di.html
+
+----
 The name Skalman is taken from the uber-smart, lazy tortoise in the Swedish comic magazine 'Bamse'. 
+
 Here is a short description taken from http://en.wikipedia.org/wiki/Bamse: 
 
 "Skalman ("Shell-man") is an ingenious tortoise who invents all sorts of things, including spacecraft and time machines. He stores just about anything in his carapace except for locomotives, spaceships or atlantic steamboats. Skalman seems to be a polyphasic sleeper, and according to himself, his best invention is the food-and-sleep clock, whose calls he follows slavishly, even at times when sleep seems highly inappropriate. To this date, he has only ignored the alarm call a few times, including the discovery of a dinosaur's egg, the birth of Bamse's children, and a state of deep depression due to the false belief that his carelessness had caused the death of Bamse's children. None of the other characters come close to Skalman's intellectual level and he is sometimes seen playing chess with himself (he has met and beaten the chess world champion)."
