@@ -13,12 +13,6 @@
   <inceptionYear>2008</inceptionYear>
   <packaging>pom</packaging>
 
-  <!-- scm>
-    <connection>scm:svn:http://ec2-67-202-34-240.compute-1.amazonaws.com/svn/gps/trunk</connection>
-    <developerConnection>scm:svn:http://ec2-67-202-34-240.compute-1.amazonaws.com/svn/gps/trunk</developerConnection>
-    <url>http://ec2-67-202-34-240.compute-1.amazonaws.com/svn/gps/trunk</url>
-  </scm -->
-
   <modules>
     <module>util-java</module>
     <module>core</module>
