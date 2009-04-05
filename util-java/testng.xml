@@ -1,17 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Tests for GPS Java Util module" verbose="1">
+<suite name="Tests for Skalman Java Util module" verbose="1">
   <test name="core">
     <groups>
       <run>
-        <include name="functional"/>
         <include name="unit"/>
-        <include name="dbunit"/>
         <exclude name="broken"/>
       </run>
     </groups>
     <packages>
-      <package name="com.triental.gps.*" />
+      <package name="se.scalablesolutions.*" />
     </packages>
   </test>
 </suite>
