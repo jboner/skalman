@@ -2,19 +2,20 @@ The Skalman Container: A minimalistic JEE container for Scala
 
 ----
 Has support for: 
-* JPA
+
+- JPA - 
 JPA Template, Genenic Repository etc.
 
-* JTA
+- JTA - 
 EJB-style TX semantics: REQUIRED, REQUIRES_NEW, MANDATORY, NEVER, SUPPORTS. Annotate your methods with f.e. '@TransactionAttribute(TransactionAttributeType.REQUIRED)'.
 
-* AOP/Interceptor framework
+- AOP/Interceptor framework - 
 Match on annotations or AspectJ pointcut langugage.
 
-* Caching
+- Caching -
 Annotate your methods with '@Cacheable' to have the cached in a very performant way.
 
-* DI
+- DI -
 We used the Cake Pattern, but used Guice at one point, should be easy to add that again if requested. 
 See this article for details: http://jonasboner.com/2008/10/06/real-world-scala-dependency-injection-di.html
 
