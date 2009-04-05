@@ -1,0 +1,213 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <packaging>jar</packaging>
+  <parent>
+    <groupId>se.scalablesolutions</groupId>
+    <artifactId>skalman</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <name>Skalman Scala Container</name>
+  <artifactId>skalman-core</artifactId>
+
+  <repositories>
+    <repository>
+      <id>repo1.maven</id>
+      <name>Maven Main Repository</name>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>
+    <repository>
+      <id>scala-tools-snapshots</id>
+      <name>Scala-Tools Maven2 Snapshot Repository</name>
+      <url>http://scala-tools.org/repo-snapshots</url>
+    </repository>
+    <repository>
+      <id>scala-tools</id>
+      <name>Scala-Tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </repository>
+    <repository>
+      <id>configgy</id>
+      <name>Configgy's' Repository</name>
+      <url>http://www.lag.net/repo</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>scala-tools.org</id>
+      <name>Scala-Tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>se.scalablesolutions</groupId>
+      <artifactId>skalman-util-java</artifactId>
+      <version>1.0</version>
+    </dependency>    
+
+    <!-- SCALA -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>2.7.3</version>
+    </dependency>    
+   <dependency>
+      <groupId>net.lag</groupId>
+      <artifactId>configgy</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjtools</artifactId>
+      <version>1.5.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.atomikos</groupId>
+      <artifactId>transactions</artifactId>
+      <version>3.1.7</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>jta</artifactId>
+      <version>1.0.1B</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-ejb_3.0_spec</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+
+    <!-- PERSISTENCE -->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>persistence-api</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.resource</groupId>
+      <artifactId>connector-api</artifactId>
+      <version>1.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate</artifactId>
+      <version>3.2.6.ga</version>
+    </dependency>
+
+    <!-- TESTING -->
+    <dependency>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest</artifactId>
+      <version>0.9.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>5.7</version>
+      <scope>test</scope>
+      <classifier>jdk15</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <version>2.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/scala</sourceDirectory>
+    <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <args>
+            <arg>-target:jvm-1.5</arg>
+            <arg>-unchecked</arg>
+          </args>
+          <scalaVersion>${scala.version}</scalaVersion>
+          <vscaladocVersion>1.0</vscaladocVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <configuration>
+          <downloadSources>true</downloadSources>
+          <buildcommands>
+            <buildcommand>
+              ch.epfl.lamp.sdt.core.scalabuilder
+            </buildcommand>
+          </buildcommands>
+          <additionalProjectnatures>
+            <projectnature>
+              ch.epfl.lamp.sdt.core.scalanature
+            </projectnature>
+          </additionalProjectnatures>
+          <classpathContainers>
+            <classpathContainer>
+              org.eclipse.jdt.launching.JRE_CONTAINER
+            </classpathContainer>
+            <classpathContainer>
+              ch.epfl.lamp.sdt.launching.SCALA_CONTAINER
+            </classpathContainer>
+          </classpathContainers>
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <filtering>false</filtering>
+        <directory>src/main/scala</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+        <excludes>
+          <exclude>**/*.scala</exclude>
+        </excludes>
+      </resource>
+    </resources>
+  </build>
+ <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+        <configuration>
+          <vscaladocVersion>1.1</vscaladocVersion>
+          <scalaVersion>${scala.version}</scalaVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
